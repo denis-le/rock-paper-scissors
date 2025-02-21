@@ -53,7 +53,6 @@ function playRound(playerSelection, computerSelection) {
         }
         else if (computerSelection == "PAPER") {
             playerScore++;
-            return ("You Win!");
         }
         else {
             return ("Tie!");
@@ -67,18 +66,20 @@ function score(result) {
 }
 
 function playGame() {
-    // for (let i = 0; i < 5; i++) {
-    //     const playerSelection = getPlayerChoice();
-    //     const computerSelection = getComputerChoice();
-    //     console.log(playRound(playerSelection, computerSelection))
-    // }
 
-    let playerSelection = 'ROCK';
+    let playerSelection = '';
     let computerSelection = getComputerChoice();
 
-    const scoreboard = document.querySelector('.scoreboard');
     const buttons = document.querySelector('#buttons');
     const results = document.querySelector('.results');
+
+    const result = document.createElement('p');
+    const choices = document.createElement('p');
+    const scores = document.createElement('p');
+
+    results.appendChild(choices);
+    results.appendChild(result);
+    results.appendChild(scores);
 
     buttons.addEventListener('click', (event) => {
         let target = event.target;
@@ -98,18 +99,18 @@ function playGame() {
                 break;
         }
 
-        const result = document.createElement('p');
-        const choices = document.createElement('p');
-        const scores = document.createElement('p');
-
         choices.textContent = `Player Choice: ${playerSelection}, Computer Choice: ${computerSelection}`;
         result.textContent = playRound(playerSelection, computerSelection);
         scores.textContent = `Player: ${playerScore}, Computer: ${computerScore}`;
 
-        results.appendChild(choices);
-        results.appendChild(result);
-        results.appendChild(scores);
-
+        if (playerScore === 5) {
+            result.textContent = 'YOU WIN THE GAME';
+            buttons.style.pointerEvents = "none";
+        }
+        else if (computerScore === 5) {
+            result.textContent = 'YOU LOST THE GAME';
+            buttons.style.pointerEvents = "none";
+        }
     });
 }
 
