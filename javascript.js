@@ -19,7 +19,7 @@ function getPlayerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-
+    
     console.log(`Player Choice: ${playerSelection}`);
     console.log(`Computer Choice: ${computerSelection}`);
 
@@ -68,6 +68,31 @@ function playGame() {
     //     console.log(playRound(playerSelection, computerSelection))
     // }
 
+    let playerSelection = 'ROCK';
+    let computerSelection = getComputerChoice();
+
+    const buttons = document.querySelector('#buttons');
+
+    buttons.addEventListener('click', (event) => {
+        let target = event.target;
+
+        switch(target.id) {
+            case 'rock':
+                playerSelection = 'ROCK';
+                computerSelection = getComputerChoice();
+                break;
+            case 'paper':
+                playerSelection = 'PAPER';
+                computerSelection = getComputerChoice();
+                break;
+            case 'scissors':
+                playerSelection = 'SCISSORS';
+                computerSelection = getComputerChoice();
+                break;
+        }
+
+        console.log(playRound(playerSelection, computerSelection))
+    });
 }
 
 playGame();
