@@ -1,3 +1,2 @@
 # rock-paper-scissors
-
-Currently played on the console
+Simple rock paper scissors game using JavaScript
