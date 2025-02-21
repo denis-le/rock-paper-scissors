@@ -43,7 +43,7 @@ function playRound(playerSelection, computerSelection) {
             return ("Tie!");
         }
         else {
-            retuPaperrn ("You Lose!");
+            return ("You Lose!");
         }
     }
 
@@ -62,11 +62,12 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function playGame() {
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = getPlayerChoice();
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection))
-    }
+    // for (let i = 0; i < 5; i++) {
+    //     const playerSelection = getPlayerChoice();
+    //     const computerSelection = getComputerChoice();
+    //     console.log(playRound(playerSelection, computerSelection))
+    // }
+
 }
 
 playGame();
